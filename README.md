@@ -117,32 +117,46 @@ A RESTful API for managing tasks, built with Laravel and MySQL. This API allows 
 - **Response**:
   ```json
   {
+    "current_page": 1,
     "data": [
-      {
-        "id": 1,
-        "title": "Complete API Project",
-        "description": "Build a task management API using Laravel",
-        "priority": "high",
-        "due_date": "2023-12-31T23:59:59.000000Z",
-        "created_at": "2023-10-01T12:00:00.000000Z",
-        "updated_at": "2023-10-01T12:00:00.000000Z"
-      }
+        {
+            "id": 5,
+            "title": "Test Task",
+            "description": "Test Description",
+            "priority": "high",
+            "due_date": "2025-03-21 00:00:00",
+            "deleted_at": null,
+            "created_at": "2025-03-21T06:57:10.000000Z",
+            "updated_at": "2025-03-21T06:57:10.000000Z"
+        }
     ],
-    "links": {
-      "first": "http://localhost:8000/api/tasks?page=1",
-      "last": "http://localhost:8000/api/tasks?page=1",
-      "prev": null,
-      "next": null
-    },
-    "meta": {
-      "current_page": 1,
-      "from": 1,
-      "last_page": 1,
-      "path": "http://localhost:8000/api/tasks",
-      "per_page": 10,
-      "to": 1,
-      "total": 1
-    }
+    "first_page_url": "http://localhost:8000/api/tasks?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "http://localhost:8000/api/tasks?page=1",
+    "links": [
+        {
+            "url": null,
+            "label": "&laquo; Previous",
+            "active": false
+        },
+        {
+            "url": "http://localhost:8000/api/tasks?page=1",
+            "label": "1",
+            "active": true
+        },
+        {
+            "url": null,
+            "label": "Next &raquo;",
+            "active": false
+        }
+    ],
+    "next_page_url": null,
+    "path": "http://localhost:8000/api/tasks",
+    "per_page": 10,
+    "prev_page_url": null,
+    "to": 1,
+    "total": 1
   }
   ```
 
