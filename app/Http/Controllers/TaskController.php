@@ -13,10 +13,16 @@ class TaskController extends Controller
     // Return all tasks
     public function index()
     {
-        $tasks = Task::orderBy('created_at', 'desc')->paginate(10);
-        return response()->json($tasks, 200); 
+        $sort = request()->input('sort');
+        if ($sort) {
+            $tasks = Task::orderBy($sort, 'desc')->paginate(10);
+        } else {
+            $tasks = Task::orderBy('created_at', 'desc')->paginate(10);
+        }
+        return response()->json($tasks, 200);
+        
     }
-
+   
     /**
      * Store a newly created resource in storage.
      */
